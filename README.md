@@ -16,5 +16,5 @@ A model that has better optimization than the previous model and supports text-b
 2. Transport
 3. Special
 4. Yaht
-5. Jet sky
+5. Hydrosycles
 6. Boat
