@@ -1,54 +1,59 @@
-# 🚢 Sea-Vessels Detection: Development Branch
+# 📦 Parsers for Ship Image Collection
 
-Welcome to the development branch of our project!  
-Here, you'll find all the core code and resources used in dataset creation, annotation, and training of our neural networks (YOLOv8 and YOLO-E based models).
-
----
-
-## 📌 Project Pipeline
-
-Our work is structured in the following key stages:
-
-1. **Collecting Existing Datasets**  
-   We sourced initial data from well-known and reputable platforms:  
-   - [Kaggle](https://www.kaggle.com/)  
-   - [Roboflow](https://roboflow.com/)
-   - etc.
-
-2. **Data Review & Evaluation**  
-   We previewed and analyzed the collected datasets to assess their quality, relevance, and applicability to our task. Based on this, we decided which datasets to retain.
-
-3. **Building a Custom Dataset**  
-   Since our use case is quite unique and the available open-source data was insufficient or inconsistent, we created a custom dataset using publicly available resources and knowledge bases on watercraft.
-
-4. **Annotation of Ship Data**  
-   After building our dataset, we utilized advanced annotation tools like [CVAT.ai](https://cvat.ai/) to precisely label ships within the images.
-
-5. **Model Training**  
-   Using the annotated dataset, we trained our YOLO-based models.  
-   Our first trained YOLOv8 model represents the **alpha version** of this project.
+This branch contains Jupyter notebooks with parsers developed by our team to collect ship and hydrocycle images. These images are later used to build our custom dataset for the project.
 
 ---
 
-## 🚧 Current Status
+## 🧭 Notebooks Overview
 
-- ✅ First alpha version trained using YOLOv8
-- 🔜 Planned improvements:
-  - Enhancing annotation quality
-  - Training improved model versions
-  - Expanding the dataset with new examples
+This branch includes three main parsers:
 
----
-
-## 📂 What's in This Branch
-
-- Source code for data processing and training
-- Dataset management scripts
-- Trained YOLOv8 alpha model
-- Configuration files and annotation formats
-- Future model improvement experiments
+- `vesselsfinder_parser.ipynb` — Collects ship images from [vesselfinder.com](https://www.vesselfinder.com)
+- `fleetphoto_parser.ipynb` — Parses images and related data from [fleetphoto.ru](https://fleetphoto.ru)
+- `istock_hydrocycles_parser.ipynb` — Collects **hydrocycle** images from [istockphoto.com](https://www.istockphoto.com)  
+  > Note: We deliberately use the term **Hydrocycles** instead of Jet Ski to reflect a more technical classification.
 
 ---
 
-Stay tuned — this branch is where all active development happens.  
-For stable and tested releases, refer to the `main` branch.
+## 🛥️ Dataset Classes
+
+We defined six primary vessel classes to be used in our detection model:
+
+| Class         | Description                                                                 |
+|---------------|-----------------------------------------------------------------------------|
+| **Industrial** | Cargo vessels: bulk carriers, container ships, tankers, etc.                |
+| **Yacht**       | Yachts of all sizes: from small recreational to large luxury vessels        |
+| **Boat**        | Boats, motorboats, speedboats, etc.                                         |
+| **Special**     | Support vessels: tugs, icebreakers, fire and technical service ships        |
+| **Hydrocycles** | Personal watercrafts. Note: we use the term **Hydrocycles**, not Jet Ski    |
+| **Transport**   | Passenger vessels: ferries, riverboats, cruise ships, etc.                  |
+
+---
+
+## 🌐 Data Sources
+
+All images and information were collected exclusively from open and verified sources:
+
+- [vesselfinder.com](https://www.vesselfinder.com)
+- [fleetphoto.ru](https://fleetphoto.ru)
+- [istockphoto.com](https://www.istockphoto.com)
+
+---
+
+## 📌 Branch Purpose
+
+The purpose of this branch is to automate the collection of vessel images, categorized by type, to build a unique dataset that will be used for annotation and neural network training.
+
+---
+
+## 🛠️ Dependencies
+
+The notebooks use the following libraries:
+
+- selenium, hashlib, os, time, io, PIL, urllib, requests
+
+---
+
+## 🔄 Next Step
+
+Once the parsers are executed and the images are cleaned, the collected data is transferred to the dataset branch for manual/semi-automatic annotation and preparation for training the YOLOv8 model.
