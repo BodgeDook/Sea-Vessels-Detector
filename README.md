@@ -46,8 +46,8 @@
 	6. Boat - 0.779
 ### 2.2 Визуализация
 - Графики
-	![[results.png]]
+	![Graffics](https://github.com/BodgeDook/Sea-Vessels-Detector/blob/main/assets/results.png)
 - Пример работы
-	![[val_batch1_pred.jpeg]]
-	![[results.gif]]
+	![Retult on validation part](https://github.com/BodgeDook/Sea-Vessels-Detector/blob/main/assets/val_batch1_pred.jpeg)
+	![Result on video](https://github.com/BodgeDook/Sea-Vessels-Detector/blob/main/assets/results.gif)
 	
